@@ -1,0 +1,34 @@
+
+install-module SHIPS
+install-module HPOneView.310
+
+import-module SHIPS
+import-module OneViewPSDrive.psm1
+
+#### Install .net 4.6
+
+https://www.microsoft.com/en-us/download/confirmation.aspx?id=48137
+
+
+
+$env:OVappliance = "10.254.13.202"
+$env:OVAdminName = "administrator"
+$env:OVAdminPassword = "P@ssword1"
+$env:OVLibraryModule = 'HPOneView.310'
+
+
+get-psdrive -name OV | remove-psdrive
+import-module C:\SHIPS\OneViewTree\OneViewPSDrive.psm1
+new-psdrive -name OV -psprovider SHiPS -root OneViewPSDrive#OV
+dir OV: | fl *
+
+
+get-psdrive -name LIG | remove-psdrive
+import-module C:\SHIPS\OneViewTree\OneViewTree.psm1
+new-psdrive -name LIG -psprovider SHiPS -root OneViewTree#LIG
+Dir LIG: | fl *
+
+get-psdrive -name EG | remove-psdrive
+import-module C:\SHIPS\OneViewTree\OneViewTree.psm1
+new-psdrive -name EG -psprovider SHiPS -root OneViewTree#EG
+Dir EG: | fl *
