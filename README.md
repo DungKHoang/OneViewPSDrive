@@ -31,6 +31,7 @@ The PSM1 module requires:
 ```
     import-module SHiPS
     Import-module HPOneView.310
+    Import-module c:\OneViewPSDrive\OneViewPSDrive.psm1
 ```   
    *  Define environment variables
 ```
@@ -82,4 +83,4 @@ The PSM1 module requires:
 
    * Not TESTED on OneView 3.00
    * Not TESTED with PowerShell OneView library 3.00
-   * Server prfiles may have some issues
+   * Server profiles may have some issues
